@@ -1,30 +1,58 @@
-# IoT Temperature Data Pipeline
+# 🌡️ IoT Temperature Data Pipeline
 
 ## 📌 Descrição
-Projeto de pipeline de dados com sensores IoT para análise de temperatura.
+Projeto de pipeline de dados utilizando sensores IoT para análise de temperatura.
+
+O sistema realiza:
+- ingestão de dados (CSV)
+- processamento com Python
+- armazenamento em PostgreSQL
+- visualização com Streamlit
+
+---
 
 ## 🚀 Tecnologias
 - Python
 - PostgreSQL
 - Docker
 - Streamlit
+- Plotly
+
+---
 
 ## ⚙️ Como executar
 
-1. Subir banco com Docker
-2. Rodar ETL:
-   python etl.py
-3. Criar views SQL
-4. Rodar dashboard:
-   python -m streamlit run dashboard.py
+### 1. Subir banco com Docker
+docker run --name postgres-iot -e POSTGRES_PASSWORD=1234 -e POSTGRES_USER=postgres -e POSTGRES_DB=iot -p 5432:5432 -d postgres
+
+### 2. Rodar ETL
+cd src
+python etl.py
+
+### 3. Criar views SQL
+Executar o arquivo views.sql no PostgreSQL
+
+### 4. Rodar dashboard
+python -m streamlit run dashboard.py
+
+---
 
 ## 📊 Funcionalidades
-- Média de temperatura por sensor
-- Análise por hora
-- Variação diária
+- análise de temperatura média
+- distribuição de leituras por hora
+- variação térmica por dia
+
+---
 
 ## 📸 Dashboard
-<img width="1920" height="973" alt="{4450741B-166B-44F8-858F-7A375E6AC580}" src="https://github.com/user-attachments/assets/e2078f6a-499e-4f17-885f-8230d02c74eb" />
-<img width="1884" height="966" alt="{98203D80-BD58-4AF8-B998-0F1E1E302F31}" src="https://github.com/user-attachments/assets/4c5d0242-a0a0-4af0-a887-cc7468a6ddb6" />
+<img width="1920" height="1021" alt="{639509EF-9BFD-4F7E-B91F-9A76D8EABDC1}" src="https://github.com/user-attachments/assets/b0146e6f-e4b0-42fc-987a-83518c71c168" />
+
+<img width="1920" height="1019" alt="{F4AD30BC-153D-4990-AFC4-7401D3AED690}" src="https://github.com/user-attachments/assets/4bda1e99-4c32-4f99-ab4d-0b7cca7209b9" />
 
 
+---
+
+## 💡 Insights
+- variação significativa de temperatura
+- padrões ao longo do tempo
+- potencial para monitoramento ambiental
